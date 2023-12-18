@@ -2,7 +2,6 @@ import React from 'react';
 import { CssBaseline } from '@mui/material';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Movies, MovieDetails, Actors, NavBar, Profile } from './';
-import { Box } from '@mui/system';
 import { Content, Main, StyledToolbar } from './styles';
 
 function App() {
