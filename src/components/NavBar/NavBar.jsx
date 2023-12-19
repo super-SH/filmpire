@@ -14,7 +14,7 @@ import {
   Brightness7,
   Menu,
 } from '@mui/icons-material';
-import { SideBar } from '..';
+import { Search, SideBar } from '..';
 
 function NavBar() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -40,7 +40,7 @@ function NavBar() {
           <IconButton color='inherit' sx={{ ml: 1 }} onClick={() => {}}>
             {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
-          {!isMobile && 'Search...'}
+          {!isMobile && <Search />}
 
           <div>
             {!isAuthenticated ? (
@@ -58,7 +58,7 @@ function NavBar() {
               </LinkBtn>
             )}
           </div>
-          {isMobile && 'Search...'}
+          {isMobile && <Search />}
         </StyledToolBar>
       </AppBar>
       <div>
