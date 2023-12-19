@@ -29,6 +29,7 @@ export const StyledLink = styled(Link)(({ theme }) => ({
   alignItems: 'center',
   fontWeight: 'bolder',
   textDecorationLine: 'none',
+  textAlign: 'center',
   [theme.breakpoints.up('xs')]: {
     display: 'flex',
     flexDirection: 'column',
