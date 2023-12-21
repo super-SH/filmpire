@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useGetMoviesQuery } from '../../services/TMDB';
-import { MovieList } from '../';
+import { MovieList, Pagination } from '../';
 import { Box, CircularProgress, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 
@@ -36,7 +36,16 @@ function Movies() {
 
   if (error) return 'An error has occured';
 
-  return <MovieList movies={data} />;
+  return (
+    <div>
+      <MovieList movies={data} />;
+      <Pagination
+        currentPage={page}
+        setPage={setPage}
+        totalPages={data?.total_pages}
+      />
+    </div>
+  );
 }
 
 export default Movies;

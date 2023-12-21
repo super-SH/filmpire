@@ -1,5 +1,5 @@
 import { Grid, Typography, Box, Button, CircularProgress } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Img } from './styles';
 import {
@@ -7,11 +7,10 @@ import {
   useGetMoviesByActorQuery,
 } from '../../services/TMDB';
 import { ArrowBack } from '@mui/icons-material';
-import MovieList from '../MovieList/MovieList';
+import { MovieList, Pagination } from '..';
 
 function Actors() {
-  //temp
-  const page = 1;
+  const [page, setPage] = useState(1);
 
   const { actorId } = useParams();
   const navigate = useNavigate();
@@ -93,6 +92,11 @@ function Actors() {
           Movies
         </Typography>
         {movies && <MovieList movies={movies} limit={12} />}
+        <Pagination
+          currentPage={page}
+          setPage={setPage}
+          totalPages={movies?.total_pages}
+        />
       </Box>
     </>
   );
