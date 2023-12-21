@@ -51,7 +51,10 @@ function SideBar({ setMobileNavOpen }) {
         <ListSubheader>Categories</ListSubheader>
         {categories?.map(({ label, value }) => (
           <StyledLink
-            onClick={() => dispatch(selectCategory(value))}
+            onClick={() => {
+              dispatch(selectCategory(value));
+              navigate('/movies');
+            }}
             key={value}
           >
             <ListItemButton>
@@ -77,6 +80,7 @@ function SideBar({ setMobileNavOpen }) {
             <StyledLink
               onClick={() => {
                 dispatch(selectCategory(id));
+                navigate('/movies');
               }}
               key={id}
             >
