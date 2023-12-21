@@ -1,4 +1,4 @@
-import { Box, Grid, styled } from '@mui/material';
+import { Box, Grid, Modal, styled } from '@mui/material';
 
 export const ContainerSpaceAround = styled(Grid)(({ theme }) => ({
   display: 'flex',
@@ -66,4 +66,20 @@ export const BtnsContainer = styled(Grid)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   width: '100%',
+}));
+
+export const StyledModal = styled(Modal)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+export const Video = styled('iframe')(({ theme }) => ({
+  border: '0px',
+  width: '50%',
+  height: '50%',
+  [theme.breakpoints.down('sm')]: {
+    width: '90%',
+    height: '90%',
+  },
 }));

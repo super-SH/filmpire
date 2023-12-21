@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import {
   useGetMovieQuery,
@@ -21,6 +21,8 @@ import {
   GenresContainer,
   Links,
   Poster,
+  StyledModal,
+  Video,
 } from './styles';
 import { useDispatch } from 'react-redux';
 
@@ -39,6 +41,7 @@ import {
 import { MovieList } from '..';
 
 function MovieDetails() {
+  const [trailerModalOpen, setTrailerModalOpen] = useState(false);
   // temp
   const isMovieWatchlisted = true;
   const isMovieFavorited = true;
@@ -71,8 +74,6 @@ function MovieDetails() {
         <Link to='/'>Something has gone wrong - Go back</Link>
       </Box>
     );
-
-  console.log(data);
 
   return (
     <ContainerSpaceAround container>
@@ -184,7 +185,11 @@ function MovieDetails() {
                 >
                   IMDB
                 </Button>
-                <Button onClick={() => {}} href='#' endIcon={<Theaters />}>
+                <Button
+                  onClick={() => setTrailerModalOpen(true)}
+                  href='#'
+                  endIcon={<Theaters />}
+                >
                   Trailer
                 </Button>
               </ButtonGroup>
@@ -230,6 +235,21 @@ function MovieDetails() {
           <Box>Sorry, nothing was found.</Box>
         )}
       </Box>
+
+      <StyledModal
+        closeAfterTransition
+        open={trailerModalOpen}
+        onClose={() => setTrailerModalOpen(false)}
+      >
+        {data?.videos?.results?.length > 0 && (
+          <Video
+            autoPlay
+            title='Trailer'
+            src={`https://www.youtube.com/embed/${data.videos.results[0].key}`}
+            allow='autoplay'
+          />
+        )}
+      </StyledModal>
     </ContainerSpaceAround>
   );
 }
