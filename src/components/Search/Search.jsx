@@ -4,14 +4,17 @@ import { InputAdornment } from '@mui/material';
 import { Search as SearchIcon } from '@mui/icons-material';
 import { searchMovie } from '../../features/categorySlice';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function Search() {
   const [query, setQuery] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function handleKeyPress(e) {
     if (e.key === 'Enter') {
       dispatch(searchMovie(query));
+      navigate('/');
       setQuery('');
     }
   }

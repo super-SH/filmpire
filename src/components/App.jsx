@@ -15,6 +15,7 @@ function App() {
           <Routes>
             <Route index element={<Navigate to='/movies' replace />} />
             <Route path='/movies' element={<Movies />} />
+            <Route path='/approved' element={<Movies />} />
             <Route path='/movies/:movieId' element={<MovieDetails />} />
             <Route path='/actors/:actorId' element={<Actors />} />
             <Route path='/profile/:id' element={<Profile />} />
