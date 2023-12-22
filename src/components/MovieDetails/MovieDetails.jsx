@@ -244,6 +244,7 @@ function MovieDetails() {
                   onClick={() => setTrailerModalOpen(true)}
                   href='#'
                   endIcon={<Theaters />}
+                  disabled={!data?.videos?.results?.length > 0}
                 >
                   Trailer
                 </Button>
@@ -291,20 +292,20 @@ function MovieDetails() {
         )}
       </Box>
 
-      <StyledModal
-        closeAfterTransition
-        open={trailerModalOpen}
-        onClose={() => setTrailerModalOpen(false)}
-      >
-        {data?.videos?.results?.length > 0 && (
+      {data?.videos?.results?.length > 0 && (
+        <StyledModal
+          closeAfterTransition
+          open={trailerModalOpen}
+          onClose={() => setTrailerModalOpen(false)}
+        >
           <Video
             autoPlay
             title='Trailer'
-            src={`https://www.youtube.com/embed/${data.videos.results[0].key}`}
+            src={`https://www.youtube.com/embed/${data?.videos?.results[0].key}`}
             allow='autoplay'
           />
-        )}
-      </StyledModal>
+        </StyledModal>
+      )}
     </ContainerSpaceAround>
   );
 }
