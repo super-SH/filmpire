@@ -19,6 +19,7 @@ import { createSessionId, fetchToken, movieApi } from '../../utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser, userSelector } from '../../features/authSlice';
 import { useNavigate } from 'react-router-dom';
+import { useColorMode } from '../../utils/ToggleColorMode';
 
 function NavBar() {
   const { isAuthenticated, user } = useSelector(userSelector());
@@ -31,6 +32,8 @@ function NavBar() {
 
   const token = localStorage.getItem('request_token');
   const sessionIdFromLocalStorage = localStorage.getItem('session_id');
+
+  const { toggleColorMode } = useColorMode();
 
   useEffect(
     function () {
@@ -76,7 +79,7 @@ function NavBar() {
               <Menu />
             </IconBtn>
           )}
-          <IconButton color='inherit' sx={{ ml: 1 }} onClick={() => {}}>
+          <IconButton color='inherit' sx={{ ml: 1 }} onClick={toggleColorMode}>
             {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
           {!isMobile && <Search />}
