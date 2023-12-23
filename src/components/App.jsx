@@ -3,8 +3,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { CssBaseline } from '@mui/material';
 
-import { Movies, MovieDetails, Actors, NavBar, Profile } from './components';
-import { Content, Main, StyledToolbar } from './components/styles';
+import { Movies, MovieDetails, Actors, NavBar, Profile } from '.';
+import { Content, Main, StyledToolbar } from './styles';
 
 function App() {
   return (
