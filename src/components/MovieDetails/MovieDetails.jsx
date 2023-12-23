@@ -45,6 +45,8 @@ import { movieApi } from '../../utils';
 
 function MovieDetails() {
   const [trailerModalOpen, setTrailerModalOpen] = useState(false);
+  const [isMovieFavorited, setIsMovieFavorited] = useState(false);
+  const [isMovieWatchlisted, setIsMovieWatchlisted] = useState(false);
 
   const { movieId } = useParams();
 
@@ -75,12 +77,17 @@ function MovieDetails() {
       page: 1,
     });
 
-  const [isMovieFavorited, setIsMovieFavorited] = useState(
-    () => !!favoriteMovies?.results?.find((movie) => movie?.id === data?.id)
-  );
-  const [isMovieWatchlisted, setIsMovieWatchlisted] = useState(
-    () => !!watchlistMovies?.results?.find((movie) => movie?.id === data?.id)
-  );
+  useEffect(() => {
+    setIsMovieFavorited(
+      !!favoriteMovies?.results?.find((movie) => movie?.id === data?.id)
+    );
+  }, [favoriteMovies, data]);
+
+  useEffect(() => {
+    setIsMovieWatchlisted(
+      !!watchlistMovies?.results?.find((movie) => movie?.id === data?.id)
+    );
+  }, [watchlistMovies, data]);
 
   const addToFavorites = async () => {
     await movieApi.post(
