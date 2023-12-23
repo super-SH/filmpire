@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
 import {
   AppBar,
   Avatar,
@@ -7,19 +10,18 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import { DrawerPaper, IconBtn, LinkBtn, Nav, StyledToolBar } from './styles';
 import {
   AccountCircle,
   Brightness4,
   Brightness7,
   Menu,
 } from '@mui/icons-material';
-import { Search, SideBar } from '..';
-import { createSessionId, fetchToken, movieApi } from '../../utils';
-import { useDispatch, useSelector } from 'react-redux';
+
 import { setUser, userSelector } from '../../features/authSlice';
-import { useNavigate } from 'react-router-dom';
+import { createSessionId, fetchToken, movieApi } from '../../utils';
 import { useColorMode } from '../../utils/ToggleColorMode';
+import { Search, SideBar } from '..';
+import { DrawerPaper, IconBtn, LinkBtn, Nav, StyledToolBar } from './styles';
 
 function NavBar() {
   const { isAuthenticated, user } = useSelector(userSelector());

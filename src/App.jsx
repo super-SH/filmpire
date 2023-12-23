@@ -1,8 +1,10 @@
 import React from 'react';
-import { CssBaseline } from '@mui/material';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { Movies, MovieDetails, Actors, NavBar, Profile } from './';
-import { Content, Main, StyledToolbar } from './styles';
+
+import { CssBaseline } from '@mui/material';
+
+import { Movies, MovieDetails, Actors, NavBar, Profile } from './components';
+import { Content, Main, StyledToolbar } from './components/styles';
 
 function App() {
   return (

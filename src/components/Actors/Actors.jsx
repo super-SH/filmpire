@@ -1,13 +1,17 @@
-import { Grid, Typography, Box, Button, CircularProgress } from '@mui/material';
 import React, { useState } from 'react';
+
 import { useNavigate, useParams } from 'react-router-dom';
-import { Img } from './styles';
+import { Grid, Typography, Box, Button, CircularProgress } from '@mui/material';
+import { ArrowBack } from '@mui/icons-material';
+
 import {
   useGetActorQuery,
   useGetMoviesByActorQuery,
 } from '../../services/TMDB';
-import { ArrowBack } from '@mui/icons-material';
+
 import { MovieList, Pagination } from '..';
+
+import { Img } from './styles';
 
 function Actors() {
   const [page, setPage] = useState(1);

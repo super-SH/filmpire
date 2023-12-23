@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Btn, Container, PageNum } from './styles';
 
 function Pagination({ currentPage, setPage, totalPages }) {

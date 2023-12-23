@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Typography, Box } from '@mui/material';
 
 import Movie from '../Movie/Movie';

@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import {
-  useGetListQuery,
-  useGetMovieQuery,
-  useGetRecommendationsQuery,
-} from '../../services/TMDB';
+import { useDispatch, useSelector } from 'react-redux';
+
 import {
   Box,
   Button,
@@ -14,6 +11,28 @@ import {
   Rating,
   Typography,
 } from '@mui/material';
+import {
+  ArrowBack,
+  Favorite,
+  FavoriteBorderOutlined,
+  Language,
+  Movie as MovieIcon,
+  PlusOne,
+  Remove,
+  Theaters,
+} from '@mui/icons-material';
+
+import genreIcons from '../../assets/genres/index';
+import { selectCategory } from '../../features/categorySlice';
+import { userSelector } from '../../features/authSlice';
+import { movieApi } from '../../utils';
+import { MovieList } from '..';
+import {
+  useGetListQuery,
+  useGetMovieQuery,
+  useGetRecommendationsQuery,
+} from '../../services/TMDB';
+
 import {
   BtnsContainer,
   CastImg,
@@ -25,23 +44,6 @@ import {
   StyledModal,
   Video,
 } from './styles';
-import { useDispatch, useSelector } from 'react-redux';
-
-import genreIcons from '../../assets/genres/index';
-import { selectCategory } from '../../features/categorySlice';
-import {
-  ArrowBack,
-  Favorite,
-  FavoriteBorderOutlined,
-  Language,
-  Movie as MovieIcon,
-  PlusOne,
-  Remove,
-  Theaters,
-} from '@mui/icons-material';
-import { MovieList } from '..';
-import { userSelector } from '../../features/authSlice';
-import { movieApi } from '../../utils';
 
 function MovieDetails() {
   const [trailerModalOpen, setTrailerModalOpen] = useState(false);

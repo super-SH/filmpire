@@ -1,6 +1,6 @@
 import React from 'react';
-import { MovieContainer } from './styles';
 import { Movie } from '../';
+import { MovieContainer } from './styles';
 
 function MovieList({ movies, limit, excludeFirst }) {
   const startFrom = excludeFirst ? 1 : 0;

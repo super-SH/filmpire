@@ -1,7 +1,8 @@
-import { useTheme } from '@mui/system';
 import React from 'react';
-import { GenreImg, LinkContainer, StyledLink } from './styles';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { useTheme } from '@mui/system';
 import {
   Box,
   CircularProgress,
@@ -12,9 +13,10 @@ import {
   ListItemText,
   ListSubheader,
 } from '@mui/material';
+
+import { GenreImg, LinkContainer, StyledLink } from './styles';
 import { useGetGenresQuery } from '../../services/TMDB';
 import genreIcons from '../../assets/genres';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectCategory } from '../../features/categorySlice';
 
 const blueLogo =
@@ -29,7 +31,6 @@ const categories = [
 ];
 
 function SideBar({ setMobileNavOpen }) {
-  const { categoryName } = useSelector((state) => state.currentCategory);
   const theme = useTheme();
   const navigate = useNavigate();
   const dispatch = useDispatch();

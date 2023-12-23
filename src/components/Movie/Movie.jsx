@@ -1,6 +1,7 @@
 import React from 'react';
-import { Img, MovieItem, StyledLink, Title } from './styles';
 import { Grow, Rating, Tooltip, Zoom } from '@mui/material';
+
+import { Img, MovieItem, StyledLink, Title } from './styles';
 
 function Movie({ movie, i }) {
   return (

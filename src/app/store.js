@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
+
 import { tmdbApi } from '../services/TMDB';
+
 import categoryReducer from '../features/categorySlice';
 import authReducer from '../features/authSlice';
 

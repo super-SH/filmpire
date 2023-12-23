@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { userSelector } from '../../features/authSlice';
+
 import { Box, Button, CircularProgress, Typography } from '@mui/material';
 import { ExitToApp } from '@mui/icons-material';
+
+import { userSelector } from '../../features/authSlice';
 import { useGetListQuery } from '../../services/TMDB';
 import { RatedCards } from '../';
 

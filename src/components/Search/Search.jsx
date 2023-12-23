@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { SearchContainer, StyledTextField } from './styles';
-import { InputAdornment } from '@mui/material';
-import { Search as SearchIcon } from '@mui/icons-material';
-import { searchMovie } from '../../features/categorySlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+import { InputAdornment } from '@mui/material';
+import { Search as SearchIcon } from '@mui/icons-material';
+
+import { searchMovie } from '../../features/categorySlice';
+import { SearchContainer, StyledTextField } from './styles';
 
 function Search() {
   const [query, setQuery] = useState('');
