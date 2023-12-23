@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-const tmdbApiKey = import.meta.env.VITE_TMDB_KEY;
 const tmdbToken = import.meta.env.VITE_TMDB_JWT;
 
 export const movieApi = axios.create({

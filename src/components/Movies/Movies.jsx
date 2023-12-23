@@ -51,7 +51,7 @@ function Movies() {
   return (
     <div>
       <FeaturedMovie movie={data?.results[0]} />
-      <MovieList movies={data} limit={numberOfMovies} excludeFirst />;
+      <MovieList movies={data} limit={numberOfMovies} excludeFirst />
       <Pagination
         currentPage={page}
         setPage={setPage}
