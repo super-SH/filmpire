@@ -11,6 +11,7 @@ export const categorySlice = createSlice({
   initialState,
   reducers: {
     selectCategory: (state, action) => {
+      state.page = 1;
       state.categoryName = action.payload;
       state.searchQuery = '';
     },

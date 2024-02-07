@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import {
@@ -27,6 +27,13 @@ function Movies() {
   const theme = useTheme();
   const lg = useMediaQuery(theme.breakpoints.only('lg'));
   const numberOfMovies = lg ? 17 : 19;
+
+  useEffect(
+    function () {
+      setPage(1);
+    },
+    [categoryName, searchQuery]
+  );
 
   if (isFetching)
     return (
