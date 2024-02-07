@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { CssBaseline } from '@mui/material';
 
-import { Movies, MovieDetails, Actors, NavBar, Profile } from '.';
+import { Movies, MovieDetails, Actors, NavBar, Profile, NotFound } from '.';
 import { Content, Main, StyledToolbar } from './styles';
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
             <Route path='/movies/:movieId' element={<MovieDetails />} />
             <Route path='/actors/:actorId' element={<Actors />} />
             <Route path='/profile/:id' element={<Profile />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </Content>
       </Main>
