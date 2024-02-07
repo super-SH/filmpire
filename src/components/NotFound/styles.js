@@ -2,7 +2,7 @@ import { Grid, styled } from '@mui/material';
 
 export const NotFoundContainer = styled(Grid)(({ theme }) => ({
   width: '100%',
-  height: 'screen',
+  height: '75vh',
   display: 'flex',
   alignItems: 'center',
   gap: '2rem',
